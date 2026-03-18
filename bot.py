@@ -12,8 +12,8 @@ TOKEN = os.getenv("TOKEN")
 
 keyboard = ReplyKeyboardMarkup(
     [
-        ["Voir les offres", "Commander"],
-        ["Tarifs", "Contact"],
+        ["Voir les offres", "Tarifs"],
+        ["Commander", "Contact"],
     ],
     resize_keyboard=True
 )
@@ -49,7 +49,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     elif text == "Commander":
         await update.message.reply_text(
-            "Pour commander, envoie ce format :\n\n"
+            "Pour commander, envoie :\n\n"
             "Nom :\n"
             "Offre choisie :\n"
             "Pour qui :\n"
@@ -67,7 +67,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         await update.message.reply_text(
             "Merci 💕\n"
-            "Utilise le menu pour voir les offres, tarifs ou commander."
+            "Utilise les boutons du menu :\n"
+            "Voir les offres, Tarifs, Commander, Contact."
         )
 
 app = ApplicationBuilder().token(TOKEN).build()
